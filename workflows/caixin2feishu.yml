@@ -1,0 +1,15 @@
+name: Send a HTTP Request when new RSS item in Caixin is detected
+on:
+  rss:
+    url: https://node2.feed43.com/caixin_scroll.xml
+jobs:
+  request:
+    name: Request 2 Feishu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a HTTP Request to Feishu Group Bot   
+        uses: xiachufang/actions-feishu@v1.2
+        with:
+          url: ${{ secrets.FEISHU_BOT_FAST }}
+          title: ${{on.rss.outputs.title}}
+          content: ${{on.rss.outputs.link}}
