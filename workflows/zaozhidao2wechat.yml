@@ -1,0 +1,25 @@
+name: Send a HTTP Request when new RSS item is detected
+on:
+  rss:
+    url: 
+      - https://pyrsshub.herokuapp.com/caixin/scroll/125?include_title=%E8%B4%A2%E7%BB%8F%E6%97%A9%E7%9F%A5%E9%81%93
+jobs:
+  request:
+    name: Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a HTTP Request      
+        uses: actionsflow/axios@v1
+        with:
+          url: ${{ secrets.WXPUSHER_WEBHOOK }}
+          method: POST
+          body: |
+            {
+                "appToken": "${{ secrets.WXPUSHER_APPTOKEN }}",
+                "content": " ${{on.rss.outputs.title}}",
+                "contentType": 1,
+                "topicIds": [
+                    984
+                ],
+                "url": "${{on.rss.outputs.link}}"
+            }
