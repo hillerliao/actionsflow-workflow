@@ -10,7 +10,7 @@ jobs:
       - name: Make a HTTP Request      
         uses: actionsflow/axios@main
         with:
-          url: {{ secrets.FEISHU_BOT_FAST }}
+          url: ${{ secrets.FEISHU_BOT_FAST }}
           method: POST
           body: |
             {
