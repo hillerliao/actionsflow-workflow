@@ -1,7 +1,7 @@
 name: Send a HTTP Request when new RSS item is detected
 on:
   rss:
-    url: https://node2.feed43.com/4013128006045655.xml
+    url: # https://node2.feed43.com/4013128006045655.xml
 jobs:
   request:
     name: Request
