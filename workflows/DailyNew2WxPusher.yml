@@ -22,5 +22,5 @@ jobs:
                 "topicIds": [
                     984
                 ],
-                "url": "${{ n.rss.outputs.link }}"
+                "url": "${{ on.rss.outputs.link }}"
             }
