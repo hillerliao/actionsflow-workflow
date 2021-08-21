@@ -1,9 +1,7 @@
 name: Send a HTTP Request when new RSS item is detected
 on:
   rss:
-    url: 
-      - https://pyrsshub.herokuapp.com/caixin/scroll/125?include_title=%E8%B4%A2%E7%BB%8F%E6%97%A9%E7%9F%A5%E9%81%93
-      - https://kill-the-newsletter.com/feeds/dxt6a6unsuydaggl.xml
+    url: https://ttr.uneasy.win/public.php?op=rss&id=697&is_cat=1&key=cvp00261210b2ee31e2
 jobs:
   request:
     name: Request
