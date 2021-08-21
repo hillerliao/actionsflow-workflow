@@ -2,7 +2,7 @@ name: Send a HTTP Request when new RSS item is detected
 on:
   rss:
     url: 
-      - https://pyrsshub.herokuapp.com/cls/telegraph/?include_title=%E6%96%B0%E9%97%BB%E8%81%94%E6%92%AD
+      - ${{ secrets.FEEDS_TO_FEISHU }}
 jobs:
   request:
     name: Request
