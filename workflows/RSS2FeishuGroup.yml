@@ -2,7 +2,7 @@ name: Send a HTTP Request when new RSS item is detected
 on:
   rss:
     url: 
-      - ${{ secrets.FEEDS_TO_FEISHU }}
+      - https://ttr.uneasy.win/public.php?op=rss&id=363&is_cat=1&key=6sy02j6073eaecef354
 jobs:
   request:
     name: Request
