@@ -1,0 +1,20 @@
+name: Send a HTTP Request when new RSS item is detected
+on:
+  rss:
+    url: 
+      - https://ttr.uneasy.win/public.php?op=rss&id=150&is_cat=1&key=u9gwj66035b042b23c5
+jobs:
+  request:
+    name: Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a HTTP Request      
+        uses: actionsflow/axios@main
+        with:
+          url: ${{ secrets.DINGTALK_BOT_ETF_SEARCH }}
+          method: POST
+          body: |
+            {
+              "msgtype":"text", 
+              "text": {"content": "${{on.rss.outputs.title}}\n${{on.rss.outputs.link}} (from github.com)"}
+            }
